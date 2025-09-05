@@ -2,13 +2,33 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(props);
+    this.state = {
+      userInfo: {
+        // name: "dummy",
+        // location: "default",
+      },
+    };
+    // console.log(this.props.name + "Child Constructor");
+  }
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/venou");
+    const json = await data.json();
+    console.log(json);
+    this.setState({
+      userInfo: json,
+    });
   }
   render() {
-    const { name, location } = this.props;
+    // const { name, location } = this.props;
+    const { name, bio, avatar_url } = this.state.userInfo;
+    // console.log(this.props.name + "Child Render");
+
     return (
-      <div className="user-card">
+      <div className="userclass">
+        <img src={avatar_url} />
         <h2>Name: {name} </h2>
-        <h3>Location: {location}</h3>
+        <h3>Bio: {bio} </h3>
         <h4>Contact: github.com/venou</h4>
       </div>
     );

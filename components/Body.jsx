@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RestaurantCards from "./RestaurantCards";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { API_URL } from "../utils/constants";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -11,11 +12,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6176855&lng=85.1589544&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      )}`
-    );
+    const data = await fetch(API_URL);
     const json = await data.json();
     const restaurants =
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
@@ -23,7 +20,7 @@ const Body = () => {
 
     setListOfRestaurants(restaurants);
     setFilteredList(restaurants);
-    console.log(restaurants);
+    // console.log(restaurants);
   };
   return (
     <div className="body">

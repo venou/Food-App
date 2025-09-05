@@ -3,12 +3,12 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
-  console.log("Header Rendered");
+  
   //  if no dependency array => useEffect is called on every render
   //  if dependency array is empty = [] => useEffect is called on initial render (just once)
   // if dependency array is btnNameReact => useEffect is called on every update
   useEffect(() => {
-    console.log("useEffect Called");
+    // console.log("useEffect Called");
   }, [btnNameReact]);
   return (
     <div className="header">

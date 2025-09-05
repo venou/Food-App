@@ -15,14 +15,13 @@ const App = () => {
     </div>
   );
 };
-console.log({ About, Contact, Error, RestaurantMenu, Body, Header });
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-       {
+      {
         path: "/",
         element: <Body />,
       },
@@ -37,11 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
-      }
+      },
     ],
     errorElement: <Error />,
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
