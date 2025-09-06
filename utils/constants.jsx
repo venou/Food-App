@@ -6,3 +6,4 @@ export const API_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(
 )}`;
 export const MENU_URL =
   "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.6176855&lng=85.1589544&restaurantId=";
+
