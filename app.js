@@ -7,6 +7,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { lazy, Suspense } from "react";
+const Grocery = lazy(() => import("./components/Grocery"));
+
 const App = () => {
   return (
     <div className="app">
@@ -16,31 +19,49 @@ const App = () => {
   );
 };
 
-const appRouter = createBrowserRouter([
+const appRouter =  createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
-        path: "/",
+        index: true, // ✅ Cleaner than path:"/"
         element: <Body />,
       },
       {
-        path: "/about",
-        element: <About />,
+        path: "about",
+        element: (
+          <>
+            <title>About Us</title> {/* ✅ React 19 built-in metadata */}
+            <About />
+          </>
+        ),
       },
       {
-        path: "/contact",
-        element: <Contact />,
+        path: "contact",
+        element: (
+          <>
+            <title>Contact</title>
+            <meta name="description" content="Contact page of our app" />
+            <Contact />
+          </>
+        ),
       },
       {
-        path: "/restaurants/:resId",
+        path: "grocery",
+        element: (
+          <Suspense fallback={<h1>Loading…</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+      {
+        path: "restaurants/:resId",
         element: <RestaurantMenu />,
       },
     ],
-    errorElement: <Error />,
   },
 ]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
