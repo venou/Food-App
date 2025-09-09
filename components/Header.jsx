@@ -2,41 +2,65 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
+
   return (
-    <div className="header">
-      <div className="logo">
-        <img src={LOGO_URL} />
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-gray-900 px-6 py-3 shadow-lg">
+      <div className="w-20">
+        <img className="rounded-xl object-contain" src={LOGO_URL} alt="Logo" />
       </div>
-      <div className="nav-items">
-        <ul>
+      <nav className="flex items-center">
+        <ul className="flex items-center space-x-6 text-white font-medium">
           <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className="hover:text-orange-400 transition-colors">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link
+              to="/about"
+              className="hover:text-orange-400 transition-colors"
+            >
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/contact">Contact Us</Link>
+            <Link
+              to="/contact"
+              className="hover:text-orange-400 transition-colors"
+            >
+              Contact
+            </Link>
           </li>
-          <li><Link to="/grocery">Grocery</Link></li>
-          <li>Cart</li>
-          <button
-            className="login-btn"
-            onClick={() => {
-              btnNameReact === "Login"
-                ? setBtnNameReact("Logout")
-                : setBtnNameReact("Login");
-            }}
-          >
-            {btnNameReact}
-          </button>
+          <li>
+            <Link
+              to="/grocery"
+              className="hover:text-orange-400 transition-colors"
+            >
+              Grocery
+            </Link>
+          </li>
+          <li>
+            <span className="cursor-pointer hover:text-orange-400 transition-colors">
+              Cart
+            </span>
+          </li>
         </ul>
-      </div>
-    </div>
+        <button
+          className="ml-6 px-5 py-2 rounded-xl bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 active:scale-95 transition"
+          onClick={() =>
+            setBtnNameReact((prev) => (prev === "Login" ? "Logout" : "Login"))
+          }
+        >
+          {btnNameReact}
+        </button>
+      </nav>
+    </header>
   );
 };
+
 export default Header;

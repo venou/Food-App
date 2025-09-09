@@ -5,11 +5,11 @@ class UserClass extends React.Component {
     // console.log(props);
     this.state = {
       userInfo: {
-        // name: "dummy",
-        // location: "default",
+        name: "dummy",
+        location: "default",
       },
     };
-    // console.log(this.props.name + "Child Constructor");
+   
   }
   async componentDidMount() {
     const data = await fetch("https://api.github.com/users/venou");
@@ -20,10 +20,9 @@ class UserClass extends React.Component {
     });
   }
   render() {
-    // const { name, location } = this.props;
+   
     const { name, bio, avatar_url } = this.state.userInfo;
-    // console.log(this.props.name + "Child Render");
-
+   
     return (
       <div className="userclass">
         <img src={avatar_url} />

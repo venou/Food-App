@@ -19,52 +19,72 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact">
-      <h1>Contact Us</h1>
-      <p>We’d love to hear from you! Please fill out the form below:</p>
+   <div className="min-h-screen bg-gray-400 flex flex-col items-center pt-28 px-6 py-10">
+  <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-8">
+    <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+      Contact Us
+    </h1>
+    <p className="text-gray-700 text-center mb-6">
+      We’d love to hear from you! Please fill out the form below:
+    </p>
 
-      <form onSubmit={handleSubmit} style={{ maxWidth: "400px", margin: "auto" }}>
-        <div style={{ marginBottom: "10px" }}>
-          <label>Name:</label><br />
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Name */}
+      <div>
+        <label className="block text-left text-gray-700 font-medium mb-1">
+          Name:
+        </label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+        />
+      </div>
 
-        <div style={{ marginBottom: "10px" }}>
-          <label>Email:</label><br />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
+      {/* Email */}
+      <div>
+        <label className="block text-left text-gray-700 font-medium mb-1">
+          Email:
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+        />
+      </div>
 
-        <div style={{ marginBottom: "10px" }}>
-          <label>Message:</label><br />
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows="4"
-            style={{ width: "100%", padding: "8px" }}
-          />
-        </div>
+      {/* Message */}
+      <div>
+        <label className="block text-left text-gray-700 font-medium mb-1">
+          Message:
+        </label>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          required
+          rows="4"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+        />
+      </div>
 
-        <button type="submit" style={{ padding: "10px 20px" }}>
-          Send
-        </button>
-      </form>
-    </div>
+      {/* Button */}
+      <button
+        type="submit"
+        className="w-full bg-amber-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-amber-600 active:scale-95 transition"
+      >
+        Send
+      </button>
+    </form>
+  </div>
+</div>
+
   );
 };
 

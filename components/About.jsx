@@ -13,24 +13,30 @@ class About extends React.Component {
   render() {
     // console.log('Parent Render');
     return (
-      <div>
-        <div className="about">
-          <h1>About Us</h1>
-          <p>
-            Welcome to our website! This is the About Page where you can learn
-            more about us.
-          </p>
-          <p>
-            We are passionate about building modern web applications using
-            React.
-          </p>
-        </div>
-        <UserClass
-          name={"Shiva Pandit (Class)"}
-          location={"Sabjibagh, Patna"}
-        />
-        
-      </div>
+    <div className="min-h-screen bg-gray-400 flex flex-col pt-28 items-center py-10 px-6 space-y-8">
+  {/* User Info Section */}
+  <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 text-center">
+    <UserClass
+      name={"Shiva Pandit (Class)"}
+      location={"Sabjibagh, Patna"}
+    />
+  </div>
+
+  {/* About Section */}
+  <div className="max-w-3xl bg-white rounded-2xl shadow-lg p-8 text-center">
+    <h1 className="text-3xl font-bold text-gray-800 mb-4">About Us</h1>
+    <p className="text-gray-700 text-lg mb-3">
+      Welcome to our website! This is the About Page where you can learn
+      more about us.
+    </p>
+    <p className="text-gray-700 text-lg">
+      We are passionate about building modern web applications using{" "}
+      <span className="font-semibold text-amber-600">React</span>.
+    </p>
+  </div>
+</div>
+
+
     );
   }
 }

@@ -9,6 +9,7 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { lazy, Suspense } from "react";
 const Grocery = lazy(() => import("./components/Grocery"));
+import "./style.css"
 
 const App = () => {
   return (

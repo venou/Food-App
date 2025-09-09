@@ -8,7 +8,6 @@ async function fetchGroceries() {
   return res.json();
 }
 
-// Run the fetch once at module level
 const groceriesPromise = fetchGroceries();
 
 export default function Grocery() {
@@ -16,55 +15,42 @@ export default function Grocery() {
   const groceries = use(groceriesPromise);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>🛒 Grocery Items</h1>
+   <div className="min-h-screen bg-gray-400 px-6 py-10 pt-28">
+  <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+    🛒 Grocery Items
+  </h1>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {groceries.map((item) => (
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-          gap: "20px",
-        }}
+        key={item.id}
+        className="bg-gray-300 rounded-2xl shadow-md hover:shadow-xl transition p-5 flex flex-col"
       >
-        {groceries.map((item) => (
-          <div
-            key={item.id}
-            style={{
-              border: "1px solid #ddd",
-              borderRadius: "12px",
-              padding: "16px",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-              backgroundColor: "#fff",
-            }}
-          >
-            <img
-              src={item.image}
-              alt={item.title}
-              style={{
-                width: "100%",
-                height: "200px",
-                objectFit: "contain",
-                marginBottom: "12px",
-              }}
-            />
-            <h2 style={{ fontSize: "18px", marginBottom: "8px" }}>
-              {item.title}
-            </h2>
-            <p style={{ color: "#666", fontSize: "14px", marginBottom: "8px" }}>
-              {item.description.substring(0, 80)}...
-            </p>
-            <p
-              style={{ fontSize: "14px", fontWeight: "bold", color: "#007BFF" }}
-            >
-              Category: {item.category}
-            </p>
-            <p
-              style={{ fontSize: "16px", fontWeight: "bold", marginTop: "8px" }}
-            >
-              💰 ${item.price}
-            </p>
-          </div>
-        ))}
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-48 object-contain mb-4"
+        />
+
+        <h2 className="text-lg font-semibold text-gray-800 mb-2">
+          {item.title}
+        </h2>
+
+        <p className="text-gray-600 text-sm mb-3">
+          {item.description.substring(0, 80)}...
+        </p>
+
+        <p className="text-sm font-medium text-blue-600">
+          Category: {item.category}
+        </p>
+
+        <p className="text-xl font-bold text-gray-900 mt-3">
+          💰 ${item.price}
+        </p>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
   );
 }
