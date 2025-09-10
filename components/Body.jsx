@@ -9,6 +9,8 @@ const Body = () => {
   const listOfRestaurants = useRestaurants();
   const [filteredList, setFilteredList] = useState([]);
   const [searchList, setSearchList] = useState("");
+  console.log('Body Render', listOfRestaurants);
+  
 
   useEffect(() => {
     setFilteredList(listOfRestaurants);
