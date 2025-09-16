@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import userContext from "../utils/userContext";
+
 const RestaurantCards = ({ resData }) => {
+  const { loggedInUser } = useContext(userContext);
   return (
     <div className="w-80 bg-gray-300 m-6 p-5 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-200 cursor-pointer">
       <img
@@ -30,6 +34,7 @@ const RestaurantCards = ({ resData }) => {
         ⭐ {resData?.info?.avgRating || "N/A"}
       </h4>
       <h4 className="text-sm text-gray-500">{resData?.info?.areaName}</h4>
+      <h4 className="text-sm text-gray-500">{loggedInUser}</h4>
     </div>
   );
 };

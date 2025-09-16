@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import userContext from "../utils/userContext";
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
+  const { loggedInUser } = useContext(userContext);
+  console.log(loggedInUser);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-gray-900 px-6 py-3 shadow-lg">
@@ -49,15 +51,16 @@ const Header = () => {
               Cart
             </span>
           </li>
+          <button
+            className="ml-6 px-5 py-2 rounded-xl bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 active:scale-95 transition"
+            onClick={() =>
+              setBtnNameReact((prev) => (prev === "Login" ? "Logout" : "Login"))
+            }
+          >
+            {btnNameReact}
+          </button>
+          <li> {loggedInUser} </li>
         </ul>
-        <button
-          className="ml-6 px-5 py-2 rounded-xl bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 active:scale-95 transition"
-          onClick={() =>
-            setBtnNameReact((prev) => (prev === "Login" ? "Logout" : "Login"))
-          }
-        >
-          {btnNameReact}
-        </button>
       </nav>
     </header>
   );

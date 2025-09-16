@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestaurantCards from "./RestaurantCards";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurants from "../utils/useRestaurants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   const listOfRestaurants = useRestaurants();
   const [filteredList, setFilteredList] = useState([]);
   const [searchList, setSearchList] = useState("");
-  console.log('Body Render', listOfRestaurants);
-  
+  // console.log('Body Render', listOfRestaurants);
 
   useEffect(() => {
     setFilteredList(listOfRestaurants);
@@ -22,8 +22,10 @@ const Body = () => {
         Looks like you are offline 🚫
       </h1>
     );
+
+  const { loggedInUser, setUserName } = useContext(userContext);
   return (
-   <div className="min-h-screen pt-28  bg-gray-400">
+    <div className="min-h-screen pt-28  bg-gray-400">
       {/* Filters Section */}
       <div className="p-4 flex flex-col md:flex-row items-center justify-between gap-4 ">
         {/* Search Section */}
@@ -62,6 +64,14 @@ const Body = () => {
         >
           ⭐ Top Rated
         </button>
+        <div>
+          <label>Username: </label>
+          <input
+            className="border border-black rounded-2xl p-2"
+            value={loggedInUser ?? ""}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
 
       {/* Restaurants Grid */}
@@ -70,14 +80,16 @@ const Body = () => {
           <Shimmer />
         ) : (
           filteredList.map((restaurant) => (
-            <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}>
+            <Link
+              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant.info.id}
+            >
               <RestaurantCards resData={restaurant} />
             </Link>
           ))
         )}
       </div>
     </div>
-
   );
 };
 export default Body;

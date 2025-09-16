@@ -6,24 +6,32 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { lazy, Suspense } from "react";
-
+import userContext from "./utils/userContext";
+import { lazy, Suspense, useEffect, useState } from "react";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
-import "./style.css"
-
+import "./style.css";
 
 const App = () => {
+  const [username, setUserName] = useState();
+  useEffect(() => {
+    const data = {
+      name: "Shiva pandit",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <userContext.Provider value={{ loggedInUser: username, setUserName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </userContext.Provider>
   );
 };
 
-const appRouter =  createBrowserRouter([
+const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,

@@ -1,5 +1,6 @@
-const ItemList = ({ items }) => {
-  console.log("items", items);
+const ItemList = ({ items, dummy }) => {
+  console.log(dummy);
+  
   const IMG_CDN_URL =
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_400/";
 
