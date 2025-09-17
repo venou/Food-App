@@ -8,10 +8,12 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import userContext from "./utils/userContext";
 import { lazy, Suspense, useEffect, useState } from "react";
+import { Provider } from "react-redux";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
 import "./style.css";
+import appStore from "./utils/appStore";
 
 const App = () => {
   const [username, setUserName] = useState();
@@ -22,12 +24,14 @@ const App = () => {
     setUserName(data.name);
   }, []);
   return (
-    <userContext.Provider value={{ loggedInUser: username, setUserName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </userContext.Provider>
+    <Provider store={appStore}>
+      <userContext.Provider value={{ loggedInUser: username, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </userContext.Provider>
+    </Provider>
   );
 };
 
