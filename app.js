@@ -9,11 +9,10 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import userContext from "./utils/userContext";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Provider } from "react-redux";
-
-const Grocery = lazy(() => import("./components/Grocery"));
-
 import "./style.css";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const App = () => {
   const [username, setUserName] = useState();
@@ -46,7 +45,7 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "about",
+        path: "/about",
         element: (
           <>
             <title>About Us</title> {/* ✅ React 19 built-in metadata */}
@@ -55,7 +54,7 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "contact",
+        path: "/contact",
         element: (
           <>
             <title>Contact</title>
@@ -65,7 +64,7 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "grocery",
+        path: "/grocery",
         element: (
           <Suspense fallback={<h1>Loading…</h1>}>
             <Grocery />
@@ -75,6 +74,10 @@ const appRouter = createBrowserRouter([
       {
         path: "restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

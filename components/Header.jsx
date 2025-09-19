@@ -9,7 +9,6 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(userContext);
   // console.log(loggedInUser);
-
   // Selector => subscribing to the store using Selector
   const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems);
@@ -52,9 +51,9 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <span className="cursor-pointer hover:text-orange-400 transition-colors">
+           <Link to="/cart"> <span className="cursor-pointer hover:text-orange-400 transition-colors">
               Cart- ({cartItems.length} items)
-            </span>
+            </span></Link>
           </li>
           <button
             className="ml-6 px-5 py-2 rounded-xl bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 active:scale-95 transition"
