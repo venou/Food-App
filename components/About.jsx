@@ -15,7 +15,7 @@ class About extends React.Component {
   render() {
     // console.log('Parent Render');
     return (
-      <div className="min-h-screen bg-gray-400 flex flex-col pt-28 items-center py-10 px-6 space-y-8">
+      <div className="min-h-screen bg-gray-100 flex flex-col pt-28 items-center py-10 px-6 space-y-8">
         {/* User Info Section */}
         <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 text-center">
           <UserClass />

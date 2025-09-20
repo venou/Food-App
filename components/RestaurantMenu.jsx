@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const dummy = "Dummy Data"
+  const dummy = "Dummy Data";
   const resInfo = useRestaurantMenu(resId);
   const [showIndex, setShowIndex] = useState(null); // initially none open
 
@@ -25,7 +25,7 @@ const RestaurantMenu = () => {
 
   return (
     <div>
-      <div className="bg-gray-100 px-6 py-10 pt-28">
+      <div className="bg-white px-6 py-4 pt-28">
         <h1 className=" text-center font-bold text-2xl my-4">{name}</h1>
         <p className="text-center text-lg font-bold">{cuisines?.join(" , ")}</p>
       </div>

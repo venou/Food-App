@@ -25,13 +25,13 @@ const Body = () => {
 
   const { loggedInUser, setUserName } = useContext(userContext);
   return (
-    <div className="min-h-screen pt-28  bg-gray-400">
+    <div className="min-h-screen pt-28  bg-white">
       {/* Filters Section */}
       <div className="p-4 flex flex-col md:flex-row items-center justify-between gap-4 ">
         {/* Search Section */}
         <div className="flex w-full md:w-auto items-center">
           <input
-            className="flex-1 md:w-72 border border-gray-300 text-gray-900 rounded-xl px-4 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="flex-1 md:w-72 border border-gray-100 text-gray-900 rounded-xl px-4 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-amber-500"
             type="text"
             value={searchList}
             placeholder="Search restaurants..."

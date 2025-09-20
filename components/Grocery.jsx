@@ -15,7 +15,7 @@ export default function Grocery() {
   const groceries = use(groceriesPromise);
 
   return (
-   <div className="min-h-screen bg-gray-400 px-6 py-10 pt-28">
+   <div className="min-h-screen bg-white px-6 py-10 pt-28">
   <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
     🛒 Grocery Items
   </h1>
@@ -24,7 +24,7 @@ export default function Grocery() {
     {groceries.map((item) => (
       <div
         key={item.id}
-        className="bg-gray-300 rounded-2xl shadow-md hover:shadow-xl transition p-5 flex flex-col"
+        className="bg-gray-100 rounded-2xl shadow-md hover:shadow-xl transition p-5 flex flex-col"
       >
         <img
           src={item.image}
