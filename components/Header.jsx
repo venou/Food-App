@@ -8,11 +8,9 @@ const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(userContext);
-  // console.log(loggedInUser);
-  // Selector => subscribing to the store using Selector
+
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
-  
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-gray-900 px-6 py-3 shadow-lg">
       <div className="w-20">
@@ -51,9 +49,11 @@ const Header = () => {
             </Link>
           </li>
           <li>
-           <Link to="/cart"> <span className="cursor-pointer hover:text-orange-400 transition-colors">
-              Cart- ({cartItems.length} items)
-            </span></Link>
+            <Link to="/cart">
+              <span className="cursor-pointer hover:text-orange-400 transition-colors">
+                Cart- ({cartItems.length} items)
+              </span>
+            </Link>
           </li>
           <button
             className="ml-6 px-5 py-2 rounded-xl bg-orange-500 text-white text-lg font-bold hover:bg-orange-600 active:scale-95 transition"

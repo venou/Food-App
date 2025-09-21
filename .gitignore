@@ -4,4 +4,4 @@
 /.parcel-cache
 build artifacts
 /dist
-
+/coverage

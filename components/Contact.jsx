@@ -37,6 +37,7 @@ const Contact = () => {
             <input
               type="text"
               name="name"
+              placeholder="Name"
               value={formData.name}
               onChange={handleChange}
               required
