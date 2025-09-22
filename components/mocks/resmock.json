@@ -1,0 +1,90 @@
+{
+  "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+  "info": {
+    "id": "84720",
+    "name": "Pizza Hut",
+    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/b32ceda4-c883-43bb-9d98-ea873ba82575_84720.JPG",
+    "locality": "Arya Kumar Road",
+    "areaName": "Rajendra Nagar",
+    "costForTwo": "₹350 for two",
+    "cuisines": ["Pizzas"],
+    "avgRating": 4.2,
+    "parentId": "721",
+    "avgRatingString": "4.2",
+    "totalRatingsString": "16K+",
+    "sla": {
+      "deliveryTime": 22,
+      "lastMileTravel": 1.6,
+      "serviceability": "SERVICEABLE",
+      "slaString": "20-25 mins",
+      "lastMileTravelString": "1.6 km",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2025-09-22 02:00:00",
+      "opened": true
+    },
+    "badges": {
+      "imageBadges": [
+        {
+          "imageId": "Rxawards/_CATEGORY-Pizza.png",
+          "description": "Delivery!"
+        }
+      ]
+    },
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {
+          "badgeObject": [
+            {
+              "attributes": {
+                "description": "Delivery!",
+                "imageId": "Rxawards/_CATEGORY-Pizza.png"
+              }
+            }
+          ]
+        },
+        "textBased": {},
+        "textExtendedBadges": {}
+      }
+    },
+    "aggregatedDiscountInfoV3": {
+      "header": "ITEMS",
+      "subHeader": "AT ₹99"
+    },
+    "orderabilityCommunication": {
+      "title": {},
+      "subTitle": {},
+      "message": {},
+      "customIcon": {}
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+      "aggregatedRating": {
+        "rating": "--"
+      }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+  },
+  "analytics": {
+    "context": "seo-data-a892ba1c-4e8a-42cd-a5e3-a38d52969136"
+  },
+  "cta": {
+    "link": "https://www.swiggy.com/city/patna/pizza-hut-arya-kumar-road-rajendra-nagar-rest84720",
+    "text": "RESTAURANT_MENU",
+    "type": "WEBLINK"
+  },
+  "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

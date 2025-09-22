@@ -3,6 +3,7 @@ import userContext from "../utils/userContext";
 
 const RestaurantCards = ({ resData }) => {
   const { loggedInUser } = useContext(userContext);
+  // console.log(resData);
   return (
     <div className="w-80 bg-gray-100 m-6 p-5 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-200 cursor-pointer">
       <img

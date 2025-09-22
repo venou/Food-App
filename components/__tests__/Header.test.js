@@ -7,7 +7,7 @@ import "@testing-library/jest-dom";
 
 it("Should render Header Component with a login button", () => {
   render(
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
       <Provider store={appStore}>
         <Header />
       </Provider>
@@ -20,7 +20,7 @@ it("Should render Header Component with a login button", () => {
 
 it("Should render Header Component with cart items 0", () => {
   render(
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
       <Provider store={appStore}>
         <Header />
       </Provider>
@@ -33,7 +33,7 @@ it("Should render Header Component with cart items 0", () => {
 
 it("Should change button Login to Logout on click", () => {
   render(
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
       <Provider store={appStore}>
         <Header />
       </Provider>
