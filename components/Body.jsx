@@ -34,7 +34,7 @@ const Body = () => {
             className="flex-1 md:w-72 border border-gray-100 text-gray-900 rounded-xl px-4 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-amber-500"
             type="text"
             value={searchList}
-            data-testid = "searchInput"
+            data-testid="searchInput" 
             placeholder="Search restaurants..."
             onChange={(e) => {
               setSearchList(e.target.value);

@@ -17,17 +17,31 @@ global.fetch = jest.fn(() => {
 it("should render the body component with search", async () => {
   await act(async () =>
     render(
-      <BrowserRouter>
+      <BrowserRouter
+        future={{
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Body />
       </BrowserRouter>
     )
   );
 
-  const searchBtn = screen.getByRole("button", { name: "Search" });
+  const cardsBeforeSearch = screen.findAllByTestId("resCard");
+  expect(cardsBeforeSearch.length).toBe(8);
 
-  const searchBox = screen.getByTestId("searchInput");
-  fireEvent.change(searchBox, {target: {value: "burger"}})
-  fireEvent.click(searchBtn)
+  // const searchBtn = screen.getByRole("button", { name: "Search" });
 
-  expect(searchBtn).toBeInTheDocument();
+  //   const searchInput = screen.getByTestId("searchInput");
+  // // console.log(searchInput);
+
+  //   fireEvent.change(searchInput, { target: { value: "burger" } });
+
+  //   fireEvent.click(searchBtn);
+
+  //   // Screen Should load 1 restaurant card
+
+  //   const card = screen.findAllByTestId("resCard");
+
+  // expect(card.length).toBe(1);
 });
